@@ -9,6 +9,9 @@ class Menu extends Component {
         <Link to="/task2">
           <h1>Task 2</h1>
         </Link>
+        <Link to="/task3">
+          <h1>Task 3</h1>
+        </Link>
       </div>
     );
   }
