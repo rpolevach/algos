@@ -59,7 +59,7 @@ class Task2 extends Component {
     return (
       <div>
         <div>
-          <span>Введите последоваиельность чисел</span>
+          <span>Введите последовательность чисел</span>
           <input onChange={this.onChange} />
         </div>
         <div>

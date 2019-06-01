@@ -38,7 +38,6 @@ class Task3 extends Component {
       <div>
         <span>Отсортированный массив по принципу прямого включения:</span>
         {insertionArray.map((value, index) => (
-          // eslint-disable-next-line no-unused-expressions
           <span key={index}>{value} </span>
         ))}
       </div>
@@ -56,7 +55,7 @@ class Task3 extends Component {
     return (
       <div>
         <div>
-          <span>Введите последоваиельность чисел</span>
+          <span>Введите последовательность чисел</span>
           <input onChange={this.onChange} />
         </div>
         <div>

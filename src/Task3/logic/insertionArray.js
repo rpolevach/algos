@@ -42,7 +42,7 @@ export const bubbleSort = array => {
   return numbers;
 };
 
-const makeNumberArray = array => {
+export const makeNumberArray = array => {
   let numberArray = [];
 
   for (let i = 0; i < array.length; i++) {
