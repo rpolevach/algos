@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 
 import { extractArray } from "../Task3/logic/extractArray";
-import { quickSort } from "./logic/sort";
+import { quickSort, cocktailSort } from "./logic/sort";
 
 class Task4 extends Component {
   state = {
     text: "",
     array: "",
-    quickArray: []
+    quickArray: [],
+    cocktailArray: []
   };
 
   onChange = e => {
@@ -20,6 +21,12 @@ class Task4 extends Component {
   onQuickSort = () => {
     this.setState({
       quickArray: quickSort(this.state.array)
+    });
+  };
+
+  onCocktailSort = () => {
+    this.setState({
+      cocktailArray: cocktailSort(this.state.array)
     });
   };
 
@@ -45,7 +52,7 @@ class Task4 extends Component {
           <button onClick={this.onQuickSort}>Быстрая сортировка</button>
         </div>
         <div>
-          <button>Сортировка пузырьком</button>
+          <button onClick={this.onCocktailSort}>Шейкерная сортировка</button>
         </div>
         {quickSort}
       </div>
