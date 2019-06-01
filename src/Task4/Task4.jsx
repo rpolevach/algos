@@ -31,12 +31,21 @@ class Task4 extends Component {
   };
 
   render() {
-    const { quickArray } = this.state;
+    const { quickArray, cocktailArray } = this.state;
 
     const quickSort = quickArray.length != 0 && (
       <div>
         <span>Отсортированный массив по принципу быстрой сортировки:</span>
         {quickArray.map((value, index) => (
+          <span key={index}>{value} </span>
+        ))}
+      </div>
+    );
+
+    const coctailSort = cocktailArray.length != 0 && (
+      <div>
+        <span>Отсортированный массив по принципу шейкерной сортировки:</span>
+        {cocktailArray.map((value, index) => (
           <span key={index}>{value} </span>
         ))}
       </div>
@@ -55,6 +64,7 @@ class Task4 extends Component {
           <button onClick={this.onCocktailSort}>Шейкерная сортировка</button>
         </div>
         {quickSort}
+        {coctailSort}
       </div>
     );
   }
