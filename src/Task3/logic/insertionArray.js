@@ -26,6 +26,22 @@ export const sortByInsert = array => {
   return sorted;
 };
 
+export const bubbleSort = array => {
+  let numbers = makeNumberArray(array);
+
+  for (let j = numbers.length - 1; j > 0; j--) {
+    for (let i = 0; i < j; i++) {
+      if (numbers[i] > numbers[i + 1]) {
+        let buff = numbers[i];
+        numbers[i] = numbers[i + 1];
+        numbers[i + 1] = buff;
+      }
+    }
+  }
+
+  return numbers;
+};
+
 const makeNumberArray = array => {
   let numberArray = [];
 

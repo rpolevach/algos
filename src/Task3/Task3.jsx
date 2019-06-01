@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 
 import { extractArray, makeNumberArray } from "./logic/extractArray";
-import { sortByInsert } from "./logic/insertionArray";
+import { sortByInsert, bubbleSort } from "./logic/insertionArray";
 
 class Task3 extends Component {
   state = {
     text: "",
     array: "",
     numberArray: [],
-    insertionArray: []
+    insertionArray: [],
+    bubbleArray: []
   };
 
   onChange = e => {
@@ -24,13 +25,31 @@ class Task3 extends Component {
     });
   };
 
+  onBubbleSort = () => {
+    this.setState({
+      bubbleArray: bubbleSort(this.state.array)
+    });
+  };
+
   render() {
-    const insertArray = this.state.insertionArray !== [] && (
+    const { insertionArray, bubbleArray } = this.state;
+
+    const insertArray = insertionArray.length !== 0 && (
       <div>
-        <span>
-          Отсортированный массив по принципу прямого включения:{" "}
-          {this.state.insertionArray}
-        </span>
+        <span>Отсортированный массив по принципу прямого включения:</span>
+        {insertionArray.map((value, index) => (
+          // eslint-disable-next-line no-unused-expressions
+          <span key={index}>{value} </span>
+        ))}
+      </div>
+    );
+
+    const bubble = bubbleArray.length !== 0 && (
+      <div>
+        <span>Отсортированный массив по принципу пузырька:</span>
+        {bubbleArray.map((value, index) => (
+          <span key={index}>{value} </span>
+        ))}
       </div>
     );
 
@@ -46,9 +65,10 @@ class Task3 extends Component {
           </button>
         </div>
         <div>
-          <button>Сортировка прямого включения</button>
+          <button onClick={this.onBubbleSort}>Сортировка пузырьком</button>
         </div>
         {insertArray}
+        {bubble}
       </div>
     );
   }
